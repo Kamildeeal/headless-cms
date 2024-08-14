@@ -21,3 +21,7 @@ body {
 main {
   flex: 1;
 }
+
+:root {
+  --tw-bg-blue-100: #ebf8ff;
+}

@@ -8,7 +8,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-blue-200 p-4 border-b-slate-800 shadow-slate-400  shadow-md">
+    <header className="bg-blue-100 p-4 border-b-slate-800 shadow-slate-400  shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <h1 className="text-black text-2xl sm:text-3xl lg:text-4xl font-bold flex gap-2 items-center">
           <PiButterfly />
