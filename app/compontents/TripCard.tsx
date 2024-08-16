@@ -1,8 +1,16 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
+import { documentToPlainTextString } from "@contentful/rich-text-plain-text-renderer";
+import { Document as RichTextDocument } from "@contentful/rich-text-types";
+import { TripPost } from "@/lib/api";
 
-const TripCard = ({ trip }: any) => {
+interface TripCardProps {
+  trip: TripPost;
+}
+
+const TripCard = ({ trip }: TripCardProps) => {
   const truncateText = (text: string, maxLength: number) => {
     if (text.length > maxLength) {
       return text.slice(0, maxLength) + "... [load post]";
@@ -10,12 +18,23 @@ const TripCard = ({ trip }: any) => {
     return text;
   };
 
-  const [isExpanded, setIsExpanded] = useState(false);
   const [hover, setHover] = useState(false);
+
+  const parsedDate = trip.date ? new Date(trip.date) : undefined;
+
+  const tripDescriptionString = trip.description as RichTextDocument;
+  const descriptionText = trip.description
+    ? documentToPlainTextString(tripDescriptionString)
+    : "";
+
+  const fullImageUrl =
+    trip.image.src && !trip.image.src.startsWith("http")
+      ? `https:${trip.image.src}`
+      : trip.image.src;
 
   return (
     <div
-      className="h-[400px] w-[400px] transition-transform overflow-hidden border-2 border-gray-300 rounded-xl relative shadow-xl shadow-gray-500"
+      className="h-[400px] w-full max-w-[400px] transition-transform overflow-hidden border-2 border-gray-300 rounded-xl relative shadow-xl shadow-gray-500"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{ transform: hover ? "scale(1.1)" : "scale(1)" }}
@@ -26,7 +45,7 @@ const TripCard = ({ trip }: any) => {
         style={{ transform: hover ? "scale(1.1)" : "scale(1)" }}
       >
         <Image
-          src={trip.imageUrl}
+          src={fullImageUrl}
           alt="Trip image"
           layout="fill"
           objectFit="cover"
@@ -48,14 +67,12 @@ const TripCard = ({ trip }: any) => {
           }`}
         >
           <p>
-            {isExpanded
-              ? trip.fields.description.content[0]?.content[0]?.value
-              : truncateText(
-                  trip.fields.description.content[0]?.content[0]?.value,
-                  75
-                )}
+            {descriptionText.length > 75
+              ? truncateText(descriptionText, 75)
+              : descriptionText}
           </p>
         </div>
+
         {/* rest info */}
         <div
           className={`relative z-10 mt-auto p-4 transition-all duration-300 ease-in-out ${
@@ -63,27 +80,20 @@ const TripCard = ({ trip }: any) => {
           } `}
         >
           <h3 className="text-lg font-normal font-roboto uppercase tracking-widest text-gray-500">
-            {trip.fields.title}
+            {trip.title}
           </h3>
-          {trip.fields.author && (
-            <p>
-              <strong>Author:</strong> {trip.fields.author.fields?.name}
-            </p>
-          )}
+
           <p className="text-2xl my-4 font-roboto">
-            <strong>Location:</strong> {trip.fields.location}
+            <strong>Location:</strong> {trip.location}
           </p>
           <p>
             <strong>Date:</strong>{" "}
-            {new Date(trip.fields.date).toLocaleDateString()}
+            {parsedDate ? parsedDate.toLocaleDateString() : "N/A"}
           </p>
-          {trip.fields.author ? (
+          {trip.author ? (
             <p className="flex flex-row text-sm">
               <strong>Author:</strong>
-              <span className="text-orange-600 ml-2">
-                {" "}
-                {trip.fields.author.fields?.name}
-              </span>
+              <span className="text-orange-600 ml-2"> {trip.author}</span>
             </p>
           ) : (
             <p className="flex flex-row text-sm mt-2">

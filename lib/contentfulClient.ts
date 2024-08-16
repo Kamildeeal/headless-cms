@@ -8,5 +8,5 @@ export const client = contentful.createClient({
 
 client
   .getEntry("75k1uCikuIh7E3UGphTHZy")
-  .then((entry) => console.log(entry))
+  .then((entry: any) => console.log())
   .catch(console.error);

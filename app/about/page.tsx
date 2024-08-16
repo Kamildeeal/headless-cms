@@ -1,37 +1,17 @@
-import { client } from "@/lib/contentful";
 import Image from "next/image";
-import { PiButterfly } from "react-icons/pi";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import AnimatedButterfly from "../compontents/Butterfly";
 import AnimatedList from "../compontents/AboutTextAnimation";
 import AnimatedTitleAnimation from "../compontents/AboutTitleAnimation";
+import { getAboutData } from "../../lib/api";
 
 export default async function AboutPage() {
-  let aboutData: any = null;
-
-  try {
-    const response = await client.getEntries({
-      content_type: "about",
-    });
-
-    if (response.items.length > 0) {
-      aboutData = response.items[0].fields;
-
-      // download IMAGE
-      if (aboutData.image && aboutData.image?.sys && aboutData.image.sys.id) {
-        const assetResponse = await client.getAsset(aboutData.image.sys.id);
-        aboutData.imageUrl = `https:${assetResponse.fields?.file?.url}`;
-      }
-    }
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-
+  const aboutData = await getAboutData();
   const userPosibilites = documentToReactComponents(
     aboutData?.aboutSecondParagraph
   );
 
-  const aboutTitle = aboutData.title;
+  const aboutTitle = aboutData?.title;
 
   return (
     <div className="p-5 max-w-[1200px] m-auto">
@@ -41,7 +21,7 @@ export default async function AboutPage() {
             <AnimatedTitleAnimation text={aboutTitle} />
           </h1>
           <div className="mb-8 text-lg font-roboto leading-7 tracking-wide">
-            <AnimatedList text={documentToReactComponents(aboutData.about)} />
+            <AnimatedList text={documentToReactComponents(aboutData?.about)} />
           </div>
           <div className="mb-4 text-lg font-roboto flex gap-12 leading-10">
             <div className="flex flex-col justify-center pb-14">
