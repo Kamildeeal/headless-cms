@@ -15,6 +15,7 @@ export interface TypeTripPostFields {
   description?: EntryFieldTypes.RichText;
   rating?: EntryFieldTypes.Integer;
   price?: EntryFieldTypes.Symbol;
+  slug: EntryFieldTypes.Symbol;
 }
 
 export interface TypeAboutPostFields {

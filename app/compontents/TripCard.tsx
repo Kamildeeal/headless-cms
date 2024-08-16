@@ -66,11 +66,13 @@ const TripCard = ({ trip }: TripCardProps) => {
             hover ? "block" : "hidden"
           }`}
         >
-          <p>
-            {descriptionText.length > 75
-              ? truncateText(descriptionText, 75)
-              : descriptionText}
-          </p>
+          <Link href={`/${trip.slug}`}>
+            <p>
+              {descriptionText.length > 75
+                ? truncateText(descriptionText, 75)
+                : descriptionText}
+            </p>
+          </Link>
         </div>
 
         {/* rest info */}

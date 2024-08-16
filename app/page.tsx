@@ -13,7 +13,7 @@ export default async function Home() {
       {tripPosts && tripPosts.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1240px] w-full">
           {tripPosts.map((trip) => (
-            <div key={trip.title} className="flex justify-center">
+            <div key={trip.slug} className="flex justify-center">
               <TripCard trip={trip} />
             </div>
           ))}

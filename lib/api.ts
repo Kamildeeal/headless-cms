@@ -7,7 +7,8 @@ import { ContentImage, parseContentfulContentImage } from "./contentImage";
 type TripPostEntry = Entry<TypeTripPostSkeleton, undefined, string>;
 
 export interface TripPost {
-  title?: string;
+  title: string;
+  slug: string;
   author?: string;
   date?: Date;
   image: ContentImage | null | any;
@@ -34,6 +35,7 @@ export function parseContentfulBlogPost(
     description: tripPostEntry.fields.description,
     rating: tripPostEntry.fields.rating,
     price: tripPostEntry.fields.price,
+    slug: tripPostEntry.fields.slug,
   };
 }
 
@@ -54,15 +56,14 @@ export async function fetchTripPosts(): Promise<TripPost[]> {
 
 // Fetch each post
 interface FetchTripPostsOptions {
-  title: string;
+  slug: string;
 }
-
 export async function fetchTripPost({
-  title,
+  slug,
 }: FetchTripPostsOptions): Promise<TripPost | null> {
   const blogPostsResult = await client.getEntries({
     content_type: "tripAdvise",
-    "fields.title": title,
+    "fields.slug": slug,
     include: 2,
   });
 
