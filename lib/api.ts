@@ -92,8 +92,28 @@ export async function getAboutData() {
   } catch (error) {
     console.error("Error fetching data:", error);
   }
-
-  const aboutTitle = aboutData.title;
-
   return aboutData;
+}
+
+export async function getHeroData() {
+  let heroData: any = null;
+
+  try {
+    const response = await client.getEntries({
+      content_type: "hero",
+    });
+
+    if (response.items.length > 0) {
+      heroData = response.items[0].fields;
+
+      // download IMAGE
+      if (heroData.image && heroData.image?.sys && heroData.image.sys.id) {
+        const assetResponse = await client.getAsset(heroData.image.sys.id);
+        heroData.imageUrl = `https:${assetResponse.fields?.file?.url}`;
+      }
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+  return heroData;
 }

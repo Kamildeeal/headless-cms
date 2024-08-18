@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import AnimatedButterfly from "../compontents/Butterfly";
-import AnimatedList from "../compontents/AboutTextAnimation";
-import AnimatedTitleAnimation from "../compontents/AboutTitleAnimation";
+import AnimatedButterfly from "../components/Butterfly";
+import AnimatedList from "../animations/AboutTextAnimation";
+import AnimatedTitleAnimation from "../animations/AboutTextAnimation";
 import { getAboutData } from "../../lib/api";
 
 export default async function AboutPage() {
