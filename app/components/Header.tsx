@@ -7,10 +7,12 @@ import LinkHeader from "./Header/LinkHeader";
 import LinkDropDown from "./Header/Dropdown";
 import GalleryDropdown from "./Header/GalleryDropdown";
 import ContactDropdown from "./Header/ContactDropdown";
+import { IoMdSearch } from "react-icons/io";
+import { DiVim } from "react-icons/di";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [dropdownStates, setDropdownStates] = useState({
     gallery: false,
     contact: false,
@@ -38,45 +40,85 @@ const Header = () => {
     }));
   };
 
+  const openSearch = () => {
+    setIsSearchOpen((prevState) => !prevState);
+  };
+
   return (
     <header className="bg-black p-4 border-b-slate-800 shadow-slate-400  shadow-md">
-      <div className="container mx-auto flex justify-between items-center">
-        <h1 className="text-gray-200 text-2xl sm:text-3xl lg:text-4xl font-bold flex gap-2 items-center">
-          <PiButterfly className="text-sky-600" />
-          <span>Tripstagram</span>
-        </h1>
+      <div className="container mx-auto flex md:justify-between items-center">
+        {/*         
+        <div className="w-full h-14">
+          <input type="text" placeholder="Seach for ..." />
+        </div> */}
 
-        {/* Big screens*/}
-        <nav className="relative flex gap-4 mx-auto">
-          <LinkHeader href="/">Home</LinkHeader>
-          <LinkHeader href="/">Blog Posts</LinkHeader>
-          <div
-            className="relative"
-            onClick={() => toggleDropdown("gallery")}
-            onMouseEnter={() => openDropdown("gallery")}
-            onMouseLeave={() => closeDropdown("gallery")}
-          >
-            <LinkDropDown href="/">Gallery</LinkDropDown>
-            {dropdownStates.gallery && (
-              <GalleryDropdown dropdownState={dropdownStates.gallery} />
-            )}
+        {isSearchOpen ? (
+          <div className="w-full h-14 items-center text-center flex justify-center">
+            <input
+              type="text"
+              placeholder="Seach for ..."
+              className="w-full mx-8 text-gray-200 bg-gray-900 px-2 py-1"
+            />
           </div>
-          <LinkHeader href="/">About</LinkHeader>
-          <div
-            className="relative"
-            onClick={() => toggleDropdown("contact")}
-            onMouseEnter={() => openDropdown("contact")}
-            onMouseLeave={() => closeDropdown("contact")}
-          >
-            <LinkDropDown href="/">Contant</LinkDropDown>
-            {dropdownStates.contact && (
-              <ContactDropdown dropdownState={dropdownStates.contact} />
-            )}
-          </div>
-        </nav>
+        ) : (
+          <>
+            {/* Logo */}
+            <h1 className="text-gray-200 mr-10 text-2xl sm:text-3xl lg:text-4xl font-bold flex gap-2 items-center">
+              <PiButterfly className="text-sky-600" />
+              <span>Tripstagram</span>
+            </h1>
 
-        {/* search bar */}
-        {/* <div className="hidden md:block relative ">
+            {/* Big screens*/}
+            <div className="flex items-center justify-center text-center">
+              <nav className="relative gap-3 lg:gap-4 mx-auto hidden min-[824px]:flex">
+                <LinkHeader href="/">Home</LinkHeader>
+                <LinkHeader href="/">Blog Posts</LinkHeader>
+                <div
+                  className="relative my-auto"
+                  onClick={() => toggleDropdown("gallery")}
+                  onMouseEnter={() => openDropdown("gallery")}
+                  onMouseLeave={() => closeDropdown("gallery")}
+                >
+                  <LinkDropDown href="/">Gallery</LinkDropDown>
+                  {dropdownStates.gallery && (
+                    <GalleryDropdown dropdownState={dropdownStates.gallery} />
+                  )}
+                </div>
+                <LinkHeader href="/">About</LinkHeader>
+                <div
+                  className="relative my-auto"
+                  onClick={() => toggleDropdown("contact")}
+                  onMouseEnter={() => openDropdown("contact")}
+                  onMouseLeave={() => closeDropdown("contact")}
+                >
+                  <LinkDropDown href="/">Contant</LinkDropDown>
+                  {dropdownStates.contact && (
+                    <ContactDropdown dropdownState={dropdownStates.contact} />
+                  )}
+                </div>
+              </nav>
+            </div>
+          </>
+        )}
+        {/* Search */}
+        <div
+          className="text-gray-200 cursor-pointer ml-auto min-[824px]:ml-4 mr-4"
+          onClick={() => openSearch()}
+        >
+          <IoMdSearch />
+        </div>
+
+        {/* Hamburger*/}
+        <button
+          className="min-[824px]:hidden text-gray-200 text-2xl hover:scale-110"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? "✕" : "☰"}
+        </button>
+      </div>
+
+      {/* search bar */}
+      {/* <div className="hidden md:block relative ">
           <input
             type="text"
             placeholder="Seach for trip..."
@@ -86,14 +128,6 @@ const Header = () => {
             🔍
           </button>
         </div> */}
-      </div>
-      {/* Hamburger*/}
-      <button
-        className="md:hidden text-gray-200 text-2xl hover:scale-110"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        {isMenuOpen ? "✕" : "☰"}
-      </button>
 
       {/* small screens */}
       {/* {isMenuOpen && (
