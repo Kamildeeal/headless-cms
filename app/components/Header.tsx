@@ -34,7 +34,7 @@ const Header = () => {
   const closeDropdown = (dropdown: keyof typeof dropdownStates) => {
     setDropdownStates((prevState) => ({
       ...prevState,
-      [dropdown]: false,
+      [dropdown]: "closing",
     }));
   };
 
@@ -96,7 +96,7 @@ const Header = () => {
       </button>
 
       {/* small screens */}
-      {isMenuOpen && (
+      {/* {isMenuOpen && (
         <nav className="md:hidden mt-4">
           <ul className="flex flex-col space-y-2">
             <li>
@@ -145,7 +145,7 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-      )}
+      )} */}
     </header>
   );
 };
