@@ -8,7 +8,10 @@ import LinkDropDown from "./Header/Dropdown";
 import GalleryDropdown from "./Header/GalleryDropdown";
 import ContactDropdown from "./Header/ContactDropdown";
 import { IoMdSearch } from "react-icons/io";
-import { DiVim } from "react-icons/di";
+import { RxCross2 } from "react-icons/rx";
+import SearchBar from "./Header/SearchBar";
+import LinkMobileMenu from "./Header/MobileMenu/LinkMobileMenu";
+import MobileGalleryDropdown from "./Header/MobileMenu/MobileGalleryDropdown";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,19 +50,9 @@ const Header = () => {
   return (
     <header className="bg-black p-4 border-b-slate-800 shadow-slate-400  shadow-md">
       <div className="container mx-auto flex md:justify-between items-center">
-        {/*         
-        <div className="w-full h-14">
-          <input type="text" placeholder="Seach for ..." />
-        </div> */}
-
         {isSearchOpen ? (
-          <div className="w-full h-14 items-center text-center flex justify-center">
-            <input
-              type="text"
-              placeholder="Seach for ..."
-              className="w-full mx-8 text-gray-200 bg-gray-900 px-2 py-1"
-            />
-          </div>
+          // SearchBar
+          <SearchBar />
         ) : (
           <>
             {/* Logo */}
@@ -105,7 +98,7 @@ const Header = () => {
           className="text-gray-200 cursor-pointer ml-auto min-[824px]:ml-4 mr-4"
           onClick={() => openSearch()}
         >
-          <IoMdSearch />
+          {isSearchOpen ? <RxCross2 /> : <IoMdSearch />}
         </div>
 
         {/* Hamburger*/}
@@ -117,69 +110,36 @@ const Header = () => {
         </button>
       </div>
 
-      {/* search bar */}
-      {/* <div className="hidden md:block relative ">
-          <input
-            type="text"
-            placeholder="Seach for trip..."
-            className="py-1 px-3 rounded-full focus:outline-none border-gray-200 border-[4px]"
-          />
-          <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
-            🔍
-          </button>
-        </div> */}
-
-      {/* small screens */}
-      {/* {isMenuOpen && (
-        <nav className="md:hidden mt-4">
-          <ul className="flex flex-col space-y-2">
-            <li>
-              <Link
-                href="/"
-                className="text-black text-lg block hover:text-gray-900 hover:font-bold transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                className="text-black text-lg block hover:text-gray-900 hover:font-bold transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                href="/add-post"
-                className="text-black text-lg block hover:text-gray-900 hover:font-bold transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Add Trip
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/"
-                className="text-black text-lg block hover:text-gray-900 hover:font-bold transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Login
-              </Link>
-            </li>
-            <li className="mt-2">
-              <input
-                type="text"
-                placeholder="Search for trip..."
-                className="w-full py-1 px-3 rounded-full focus:outline-none"
-              />
-            </li>
-          </ul>
+      {/* Small screens */}
+      {isMenuOpen && (
+        <nav className="md:hidden mt-4 flex justify-center items-center flex-col">
+          <LinkMobileMenu href="/">Home</LinkMobileMenu>
+          <LinkMobileMenu href="/">Blog Posts</LinkMobileMenu>
+          <div
+            className="relative my-auto"
+            onClick={() => toggleDropdown("gallery")}
+            onMouseEnter={() => openDropdown("gallery")}
+            onMouseLeave={() => closeDropdown("gallery")}
+          >
+            <LinkDropDown href="/">Gallery</LinkDropDown>
+            {dropdownStates.gallery && (
+              <GalleryDropdown dropdownState={dropdownStates.gallery} />
+            )}
+          </div>
+          <LinkMobileMenu href="/">About</LinkMobileMenu>
+          <div
+            className="relative my-auto"
+            onClick={() => toggleDropdown("contact")}
+            onMouseEnter={() => openDropdown("contact")}
+            onMouseLeave={() => closeDropdown("contact")}
+          >
+            <LinkDropDown href="/">Contant</LinkDropDown>
+            {dropdownStates.contact && (
+              <ContactDropdown dropdownState={dropdownStates.contact} />
+            )}
+          </div>
         </nav>
-      )} */}
+      )}
     </header>
   );
 };

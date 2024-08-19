@@ -23,8 +23,7 @@ export default function TextAnimation({
       mainControls.start("visible");
       slideControls.start("visible");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isInView]);
+  }, [isInView, mainControls, slideControls]);
 
   return (
     <div
