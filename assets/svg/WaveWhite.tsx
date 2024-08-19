@@ -3,7 +3,7 @@ import React from "react";
 const WaveSvg: React.FC = () => {
   return (
     <svg
-      className="w-full h-full rotate-180"
+      className="w-full h-full"
       xmlns="http://www.w3.org/2000/svg"
       fill="#FFFFFF"
       viewBox="0 0 1000 100"

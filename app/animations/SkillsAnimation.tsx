@@ -24,7 +24,7 @@ export default function SkillsAnimate({
       mainControls.start("visible");
       slideControls.start("visible");
     }
-  }, [isInView]);
+  }, [isInView, mainControls, slideControls]);
 
   return (
     <div
@@ -50,7 +50,7 @@ export default function SkillsAnimate({
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.5, delay: 0.5 }}
+        transition={{ duration: 1, delay: 0.5 }}
       >
         {children}
       </motion.div>
