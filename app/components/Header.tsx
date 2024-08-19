@@ -12,6 +12,7 @@ import { RxCross2 } from "react-icons/rx";
 import SearchBar from "./Header/SearchBar";
 import LinkMobileMenu from "./Header/MobileMenu/LinkMobileMenu";
 import MobileGalleryDropdown from "./Header/MobileMenu/MobileGalleryDropdown";
+import WaveSvg from "@/assets/svg/WaveBlack";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -77,7 +78,7 @@ const Header = () => {
                     <GalleryDropdown dropdownState={dropdownStates.gallery} />
                   )}
                 </div>
-                <LinkHeader href="/">About</LinkHeader>
+                <LinkHeader href="/about">About</LinkHeader>
                 <div
                   className="relative my-auto"
                   onClick={() => toggleDropdown("contact")}

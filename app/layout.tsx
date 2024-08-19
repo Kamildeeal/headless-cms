@@ -4,6 +4,7 @@ import "./globals.css";
 import { Roboto } from "next/font/google";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import WaveSvg from "@/assets/svg/WaveBlack";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
+        <div className="w-full h-[50px] z-10 absolute top-[62px]  min-[768px]:top-[68px]  xl:top-[72px]">
+          <WaveSvg />
+        </div>
+
         <main>{children}</main>
         <Footer />
       </body>

@@ -4,6 +4,7 @@ import AnimatedButterfly from "../components/Butterfly";
 import AnimatedList from "../animations/AboutTextAnimation";
 import AnimatedTitleAnimation from "../animations/AboutTextAnimation";
 import { getAboutData } from "../../lib/api";
+import WaveSvg from "@/assets/svg/WaveBlack";
 
 export default async function AboutPage() {
   const aboutData = await getAboutData();

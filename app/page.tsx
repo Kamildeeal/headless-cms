@@ -3,6 +3,7 @@ import TripCard from "./components/TripCard";
 import { fetchTripPosts, getAboutData, getHeroData } from "../lib/api";
 import Hero from "./components/Hero";
 import { DiVim } from "react-icons/di";
+import UsedTechnologies from "./components/UsedTechnologies";
 
 export const revalidate = 60;
 // export const dynamic = "force-static";
@@ -14,6 +15,8 @@ export default async function Home() {
   return (
     <div>
       <Hero heroData={heroData} />
+      <UsedTechnologies />
+
       {/* {aboutData.imageUrl && (
         <div className="relative rounded-lg shadow-md border-[1px] border-gray-400 shadow-slate-800 overflow-hidden group transition-transform duration-3000 ease-in-out transform group-hover:translate-y-0 animate-wave">
           <div className="overflow-hidden">

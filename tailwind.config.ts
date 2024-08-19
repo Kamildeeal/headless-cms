@@ -25,11 +25,15 @@ const config: Config = {
       },
       animation: {
         wave: "wave 3.5s ease-in-out infinite",
+        "spin-slow": "spin-slow 3s linear infinite",
       },
       keyframes: {
         wave: {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-20px)" },
+        },
+        "spin-slow": {
+          to: { transform: "rotate(360deg)" },
         },
       },
       transitionDuration: {
@@ -39,4 +43,5 @@ const config: Config = {
   },
   plugins: [],
 };
+
 export default config;
