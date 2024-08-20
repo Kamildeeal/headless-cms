@@ -6,7 +6,7 @@ const HeroEntryText = () => {
   return (
     <SkillsAnimate>
       <div className="relative my-12 lg:my-36 font-roboto z-50 flex flex-col items-center justify-center h-full text-white">
-        <h1 className="text-2xl lg:text-4xl  font-bold my-4 text-center">
+        <h1 className="text-3xl lg:text-5xl  font-bold my-4 text-center">
           DISCOVER & LEARN & ENJOY.
         </h1>
         <p className="text-sm lg:text-base text-center">

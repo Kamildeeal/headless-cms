@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import UsedTechnologies from "./components/UsedTechnologies";
 import BlogContentDesc from "./components/BlogContentDesc";
 import FeedDesc from "./components/Content/FeedDesc";
+import HomeFooter from "./components/Home/HomeFooter";
 
 export const revalidate = 60;
 // export const dynamic = "force-static";
@@ -19,6 +20,7 @@ export default async function Home() {
       <FeedDesc />
       <BlogContentDesc />
       <UsedTechnologies />
+      <HomeFooter heroData={heroData} />
     </div>
   );
 }

@@ -9,11 +9,6 @@ async function Hero({ heroData }: any) {
   return (
     <section>
       <section className="relative h-[700px] w-screen overflow-hidden bg-gray-400 flex flex-col justify-between max-[1300px]:h-[550px] max-lg:h-[500px] max-md:h-[320px]">
-        {/* Black SVG */}
-        {/* <div className="w-full h-[50px] z-10">
-          <WaveSvg />
-        </div> */}
-
         {/* Video or Image */}
         {heroData.imageUrl && (
           <div className="realtive overflow-hidden hidden max-[560px]:flex">

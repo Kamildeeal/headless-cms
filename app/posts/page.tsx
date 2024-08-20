@@ -29,7 +29,7 @@ async function PostPage() {
         </div>
       </div>
 
-      <div className="flex items-center mb-6 mx-auto px-auto mt-8">
+      <div className="flex items-center mb-6 mx-auto px-auto mt-12 text-gray-700">
         <div className="h-[2px] w-16 sm:w-32 md:w-64 mr-4 bg-gradient-to-l from-gray-300 to-transparent"></div>
         <div className="text-xl text-center sm:text-3xl font-bold">
           TRAVEL YOUR BEST

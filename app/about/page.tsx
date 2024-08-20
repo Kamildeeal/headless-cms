@@ -15,17 +15,22 @@ export default async function AboutPage() {
   const aboutTitle = aboutData?.title;
 
   return (
-    <div className="p-5 max-w-[1200px] m-auto">
+    <div className="p-5 max-w-[1200px] m-auto flex items-center justify-center">
       {aboutData ? (
         <div>
-          <h1 className="text-3xl md:text-4xl font-bold my-12 flex items-center gap-2">
-            <AnimatedTitleAnimation text={aboutTitle} />
-          </h1>
+          <div className="flex items-center justify-center mx-auto px-auto mt-24 mb-16 text-gray-700">
+            <div className="h-[2px] w-16 sm:w-32 md:w-64 mr-4 bg-gradient-to-l from-gray-300 to-transparent"></div>
+            <div className="text-3xl text-center md:text-4xl font-bold">
+              ABOUT TIPSTAGRAM
+            </div>
+            <div className="h-[2px] w-16 sm:w-32 md:w-64  ml-4 bg-gradient-to-r from-gray-300 to-transparent"></div>
+          </div>
+
           <div className="mb-8 text-lg font-roboto leading-7 tracking-wide">
             <AnimatedList text={documentToReactComponents(aboutData?.about)} />
           </div>
           <div className="mb-4 text-lg font-roboto flex gap-12 leading-10">
-            <div className="flex flex-col justify-center pb-14">
+            <div className="flex flex-col justify-center pb-14 text-gray-900">
               <AnimatedList text={userPosibilites} />
             </div>
             {aboutData.imageUrl && (

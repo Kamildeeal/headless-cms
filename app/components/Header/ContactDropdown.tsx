@@ -59,10 +59,16 @@ const ContactDropdown = ({
           variants={dropdownVariants}
           className="absolute left-0 w-48 bg-black shadow-lgoverflow-hidden z-[1000]"
         >
-          <div className="dropdown-menu flex flex-col gap-2 bg-black font-roboto text-sm text-gray-200 px-2 pt-6 pb-2 w-[200px] z-[50]">
-            <LinkDropdownMenu href="/">GitHub</LinkDropdownMenu>
-            <LinkDropdownMenu href="/">LinkedIn</LinkDropdownMenu>
-            <LinkDropdownMenu href="/">Email</LinkDropdownMenu>
+          <div className="dropdown-menu text-start flex flex-col gap-2 bg-black font-roboto text-sm text-gray-200 px-2 pt-6 pb-2 w-[200px] z-[50]">
+            <LinkDropdownMenu href="https://github.com/Kamildeeal">
+              GitHub
+            </LinkDropdownMenu>
+            <LinkDropdownMenu href="https://www.linkedin.com/in/kamil-wojciak-68bb54214/">
+              LinkedIn
+            </LinkDropdownMenu>
+            <LinkDropdownMenu href="mailto:kamil.wojciak.1995@gmail.com">
+              Email
+            </LinkDropdownMenu>
           </div>
         </motion.div>
       )}

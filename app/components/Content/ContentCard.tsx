@@ -29,7 +29,7 @@ const ContentCard = ({ post }: ContentCardProps) => {
 
   return (
     <SkillsAnimation>
-      <div className="flex flex-col justify-center items-center gap-6 my-8 overflow-visible">
+      <div className="flex flex-col justify-center items-center gap-6 my-8 overflow-visible pr-5">
         <Link href={checkNavigation()}>
           <Image
             src={fullImageUrl}
