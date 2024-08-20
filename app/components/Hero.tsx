@@ -25,14 +25,14 @@ async function Hero({ heroData }: any) {
             />
           </div>
         )}
-        {/* <div className="flex max-[560px]:hidden">
+        <div className="flex max-[560px]:hidden">
           <iframe
             src="https://www.youtube.com/embed/Qbu_FRg8vuU?autoplay=1&mute=1&loop=1&playlist=Qbu_FRg8vuU"
             allow="autoplay; encrypted-media"
             className="absolute top-0 left-0 w-full aspect-video object-cover"
             style={{ pointerEvents: "none" }}
           ></iframe>
-        </div> */}
+        </div>
 
         <HeroEntryText />
         {/* {White SVG} */}

@@ -49,7 +49,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-black p-4 border-b-slate-800 shadow-slate-400  shadow-md">
+    <header className="bg-black p-4   shadow-md z-50">
       <div className="container mx-auto flex md:justify-between items-center">
         {isSearchOpen ? (
           // SearchBar
@@ -66,7 +66,7 @@ const Header = () => {
             <div className="flex items-center justify-center text-center">
               <nav className="relative gap-3 lg:gap-4 mx-auto hidden min-[824px]:flex">
                 <LinkHeader href="/">Home</LinkHeader>
-                <LinkHeader href="/">Blog Posts</LinkHeader>
+                <LinkHeader href="/posts">Blog Posts</LinkHeader>
                 <div
                   className="relative my-auto"
                   onClick={() => toggleDropdown("gallery")}
@@ -113,7 +113,7 @@ const Header = () => {
 
       {/* Small screens */}
       {isMenuOpen && (
-        <nav className="md:hidden mt-4 flex justify-center items-center flex-col">
+        <nav className="md:hidden mt-4 flex justify-center items-center flex-col z-50">
           <LinkMobileMenu href="/">Home</LinkMobileMenu>
           <LinkMobileMenu href="/">Blog Posts</LinkMobileMenu>
           <div

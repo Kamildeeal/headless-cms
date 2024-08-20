@@ -95,6 +95,8 @@ export async function getAboutData() {
   return aboutData;
 }
 
+//Fetch Hero Image
+
 export async function getHeroData() {
   let heroData: any = null;
 
@@ -116,4 +118,34 @@ export async function getHeroData() {
     console.error("Error fetching data:", error);
   }
   return heroData;
+}
+
+//Fetch BlogDescriptionData
+
+export async function getContactData(): Promise<TripPost[]> {
+  const postsResult = await client.getEntries({
+    content_type: "contactAbout",
+    include: 2,
+    order: ["fields.title"],
+  });
+
+  return postsResult.items.map(
+    (tripPostEntry: TripPostEntry | undefined) =>
+      parseContentfulBlogPost(tripPostEntry) as TripPost
+  );
+}
+
+//Fetch BlogDescriptionData
+
+export async function getFeedData(): Promise<TripPost[]> {
+  const postsResult = await client.getEntries({
+    content_type: "feed",
+    include: 2,
+    order: ["fields.title"],
+  });
+
+  return postsResult.items.map(
+    (tripPostEntry: TripPostEntry | undefined) =>
+      parseContentfulBlogPost(tripPostEntry) as TripPost
+  );
 }

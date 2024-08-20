@@ -2,11 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Climate+Crisis&family=Roboto+Slab:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Climate+Crisis&family=Roboto+Slab:wght@100..900&display=swap");
 
 .font-roboto {
   font-family: "Roboto", sans-serif;
 }
+.font-basker {
+  font-family: "Baskervville SC", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 html,
 body {
   height: 100%;
@@ -24,4 +30,8 @@ main {
 
 :root {
   --tw-bg-blue-100: #ebf8ff;
+}
+
+.custom-shadow {
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.5);
 }

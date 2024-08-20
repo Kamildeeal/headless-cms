@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import AnimatedButterfly from "../components/Butterfly";
-import AnimatedList from "../animations/AboutTextAnimation";
-import AnimatedTitleAnimation from "../animations/AboutTextAnimation";
+import AnimatedList from "../components/animations/AboutTextAnimation";
+import AnimatedTitleAnimation from "../components/animations/AboutTextAnimation";
 import { getAboutData } from "../../lib/api";
 import WaveSvg from "@/assets/svg/WaveBlack";
 
@@ -29,7 +29,7 @@ export default async function AboutPage() {
               <AnimatedList text={userPosibilites} />
             </div>
             {aboutData.imageUrl && (
-              <div className="relative rounded-lg shadow-md border-[1px] border-gray-400 shadow-slate-800 overflow-hidden group transition-transform duration-3000 ease-in-out transform group-hover:translate-y-0 animate-wave">
+              <div className="relative rounded-lg shadow-md border-[1px] h-max-content border-gray-400 shadow-slate-800 overflow-hidden group transition-transform duration-3000 ease-in-out transform group-hover:translate-y-0 animate-wave">
                 <div className="overflow-hidden">
                   <Image
                     src={aboutData.imageUrl}
@@ -39,7 +39,7 @@ export default async function AboutPage() {
                     className="w-full h-auto "
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-b from-white to-transparent opacity-30 transition-transform duration-3000 ease-in-out transform group-hover:translate-y-0 animate-wave"></div>
+                <div className="absolute inset-0 bg-gradient-to-b h-max-content from-white to-transparent opacity-30 transition-transform duration-3000 ease-in-out transform group-hover:translate-y-0 animate-wave"></div>
               </div>
             )}
           </div>

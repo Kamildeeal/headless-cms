@@ -22,6 +22,7 @@ const config: Config = {
       },
       fontFamily: {
         roboto: ["Roboto", "sans-serif"],
+        basker: ["Baskervville SC", "serif"],
       },
       animation: {
         wave: "wave 3.5s ease-in-out infinite",

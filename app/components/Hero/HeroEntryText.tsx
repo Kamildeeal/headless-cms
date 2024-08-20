@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import SkillsAnimate from "@/app/animations/SkillsAnimation";
+import SkillsAnimate from "@/app/components/animations/SkillsAnimation";
 
 const HeroEntryText = () => {
   return (
