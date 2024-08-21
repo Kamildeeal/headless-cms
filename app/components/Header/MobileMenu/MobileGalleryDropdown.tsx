@@ -68,7 +68,7 @@ const MobileGalleryDropdown = ({
             <LinkDropdownMenu href="/">
               to don&apos;t waste contentful CMS memory
             </LinkDropdownMenu>
-            <LinkDropdownMenu href="/">visit all posts</LinkDropdownMenu>
+            <LinkDropdownMenu href="/posts">visit all posts</LinkDropdownMenu>
           </div>
         </motion.div>
       )}

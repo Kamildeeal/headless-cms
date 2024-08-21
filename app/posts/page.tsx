@@ -29,18 +29,19 @@ async function PostPage() {
         </div>
       </div>
 
-      <div className="flex items-center mb-6 mx-auto px-auto mt-12 text-gray-700">
+      <div className="flex items-center mb-4 mx-auto px-auto mt-12 text-gray-700">
         <div className="h-[2px] w-16 sm:w-32 md:w-64 mr-4 bg-gradient-to-l from-gray-300 to-transparent"></div>
         <div className="text-xl text-center sm:text-3xl font-bold">
           TRAVEL YOUR BEST
         </div>
         <div className="h-[2px] w-16 sm:w-32 md:w-64  ml-4 bg-gradient-to-r from-gray-300 to-transparent"></div>
       </div>
+      <p className="font-roboto text-gray-700">RECENT POSTS</p>
       {/* all posts */}
       <section className="flex h-full flex-col items-center justify-between p-4 sm:p-8 md:p-12 lg:p-24">
         <div>
           {tripPosts && tripPosts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1240px] w-full">
+            <div className="mb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1240px] w-full">
               {tripPosts.map((trip) => (
                 <div key={trip.slug} className="flex justify-center">
                   <TripCard trip={trip} />

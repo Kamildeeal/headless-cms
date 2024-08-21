@@ -85,7 +85,7 @@ const Header = () => {
                   onMouseEnter={() => openDropdown("contact")}
                   onMouseLeave={() => closeDropdown("contact")}
                 >
-                  <LinkDropDown href="/">Contant</LinkDropDown>
+                  <LinkDropDown href="/">Contact</LinkDropDown>
                   {dropdownStates.contact && (
                     <ContactDropdown dropdownState={dropdownStates.contact} />
                   )}
@@ -115,7 +115,7 @@ const Header = () => {
       {isMenuOpen && (
         <nav className="md:hidden mt-4 flex justify-center items-center flex-col z-50">
           <LinkMobileMenu href="/">Home</LinkMobileMenu>
-          <LinkMobileMenu href="/">Blog Posts</LinkMobileMenu>
+          <LinkMobileMenu href="/posts">Blog Posts</LinkMobileMenu>
           <div
             className="relative my-auto"
             onClick={() => toggleDropdown("gallery")}
@@ -127,14 +127,14 @@ const Header = () => {
               <GalleryDropdown dropdownState={dropdownStates.gallery} />
             )}
           </div>
-          <LinkMobileMenu href="/">About</LinkMobileMenu>
+          <LinkMobileMenu href="/about">About</LinkMobileMenu>
           <div
             className="relative my-auto"
             onClick={() => toggleDropdown("contact")}
             onMouseEnter={() => openDropdown("contact")}
             onMouseLeave={() => closeDropdown("contact")}
           >
-            <LinkDropDown href="/">Contant</LinkDropDown>
+            <LinkDropDown href="/">Contact</LinkDropDown>
             {dropdownStates.contact && (
               <ContactDropdown dropdownState={dropdownStates.contact} />
             )}

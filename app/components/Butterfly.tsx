@@ -36,7 +36,7 @@ export default function AnimatedButterfly() {
         animate="visible"
         custom={1}
       >
-        <PiButterfly className="absolute top-[40%] right-[25%] rotate-[215deg] text-[200px] z-[-1] opacity-[0.95] text-gray-300" />
+        <PiButterfly className="hidden sm:flex absolute top-[40%] right-[25%] rotate-[215deg] text-[200px] z-[-1] opacity-[0.95] text-gray-300" />
       </motion.div>
 
       <motion.div

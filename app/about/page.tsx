@@ -15,22 +15,22 @@ export default async function AboutPage() {
   const aboutTitle = aboutData?.title;
 
   return (
-    <div className="p-5 max-w-[1200px] m-auto flex items-center justify-center">
+    <div className="p-5 px-[2vw] max-w-[1200px] min-w-[320px] m-auto flex items-center justify-center">
       {aboutData ? (
         <div>
           <div className="flex items-center justify-center mx-auto px-auto mt-24 mb-16 text-gray-700">
             <div className="h-[2px] w-16 sm:w-32 md:w-64 mr-4 bg-gradient-to-l from-gray-300 to-transparent"></div>
             <div className="text-3xl text-center md:text-4xl font-bold">
-              ABOUT TIPSTAGRAM
+              ABOUT TRIPSTAGRAM
             </div>
             <div className="h-[2px] w-16 sm:w-32 md:w-64  ml-4 bg-gradient-to-r from-gray-300 to-transparent"></div>
           </div>
 
-          <div className="mb-8 text-lg font-roboto leading-7 tracking-wide">
+          <div className="min-w-[320px] px-[20px] w-full mb-8 text-lg font-roboto leading-7 tracking-wide">
             <AnimatedList text={documentToReactComponents(aboutData?.about)} />
           </div>
-          <div className="mb-4 text-lg font-roboto flex gap-12 leading-10">
-            <div className="flex flex-col justify-center pb-14 text-gray-900">
+          <div className="mb-4 text-lg font-roboto flex gap-12 leading-10 flex-col sm:flex-row px-[20px]">
+            <div className="hidden sm:flex flex-col justify-center pb-[8px] sm:pb-14 text-gray-900">
               <AnimatedList text={userPosibilites} />
             </div>
             {aboutData.imageUrl && (
@@ -47,6 +47,9 @@ export default async function AboutPage() {
                 <div className="absolute inset-0 bg-gradient-to-b h-max-content from-white to-transparent opacity-30 transition-transform duration-3000 ease-in-out transform group-hover:translate-y-0 animate-wave"></div>
               </div>
             )}
+            <div className="flex sm:hidden flex-col justify-center pb-[8px] sm:pb-14 text-gray-900">
+              <AnimatedList text={userPosibilites} />
+            </div>
           </div>
         </div>
       ) : (

@@ -88,21 +88,30 @@ const TripCard = ({ trip }: TripCardProps) => {
           <p className="text-2xl my-4 font-roboto">
             <strong>Location:</strong> {trip.location}
           </p>
-          <p>
-            <strong>Date:</strong>{" "}
-            {parsedDate ? parsedDate.toLocaleDateString() : "N/A"}
-          </p>
-          {trip.author ? (
-            <p className="flex flex-row text-sm">
-              <strong>Author:</strong>
-              <span className="text-orange-600 ml-2"> {trip.author}</span>
-            </p>
-          ) : (
-            <p className="flex flex-row text-sm mt-2">
-              <strong>Author: </strong>
-              <span className="text-orange-600 ml-2">Annonymous</span>
-            </p>
-          )}
+          <div className="flex justify-between">
+            <div>
+              <p>
+                <strong>Date:</strong>{" "}
+                {parsedDate ? parsedDate.toLocaleDateString() : "N/A"}
+              </p>
+              {trip.author ? (
+                <p className="flex flex-row text-sm">
+                  <strong>Author:</strong>
+                  <span className="text-orange-600 ml-2"> {trip.author}</span>
+                </p>
+              ) : (
+                <p className="flex flex-row text-sm mt-2">
+                  <strong>Author: </strong>
+                  <span className="text-orange-600 ml-2">Annonymous</span>
+                </p>
+              )}
+            </div>
+            {hover && (
+              <div className="my-auto py-1 px-2  sm:py-2 sm:px-4 text-sm text-white bg-orange-500 border-[1px] border-white rounded-xl">
+                <Link href={`/${trip.slug}`}>Read more →</Link>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

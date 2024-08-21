@@ -19,20 +19,25 @@ const Footer = () => {
             Tripstagram 2024
           </div>
           <nav>
-            <ul className="flex space-x-4 flex-col sm:flex-row items-center my-4">
+            <ul className="flex flex-col sm:flex-row text-center justify-center items-center my-4">
               <li>
-                <a href="/privacy" className="hover:text-gray-300">
-                  Privacy Politycy
+                <a
+                  href="mailto:kamil.wojciak.1995@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300 mx-auto"
+                >
+                  Gmail
                 </a>
               </li>
               <li>
-                <a href="/terms" className="hover:text-gray-300">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="/" className="hover:text-gray-300">
-                  Contact
+                <a
+                  href="https://www.linkedin.com/in/kamil-wojciak-68bb54214/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gray-300 mx-auto ml-0 sm:ml-6"
+                >
+                  LinkedIn
                 </a>
               </li>
             </ul>
