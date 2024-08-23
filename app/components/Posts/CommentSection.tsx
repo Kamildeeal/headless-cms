@@ -22,14 +22,23 @@ function Comments({ postId }: any) {
     loadComments();
   }, [postId]);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    const newComment = await submitComment(name, content, postId);
-    if (newComment) {
-      setComments([...comments, newComment]);
-      setName("");
-      setContent("");
-    }
+
+    submitComment(name, content, postId)
+      .then((newComment) => {
+        if (newComment) {
+          setComments((prevComments) => [...prevComments, newComment]);
+          setName("");
+          setContent("");
+          // Możesz odświeżyć stronę lub aktualizować stan, w zależności od potrzeb
+          window.location.reload(); // Jeśli chcesz pełne przeładowanie strony
+          // Jeżeli chcesz aktualizować tylko stan bez pełnego przeładowania, możesz pominąć ten krok
+        }
+      })
+      .catch((error) => {
+        console.error("Error submitting comment:", error);
+      });
   };
 
   return (
