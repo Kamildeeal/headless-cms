@@ -2,17 +2,13 @@ import Image from "next/image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import AnimatedButterfly from "../components/Butterfly";
 import AnimatedList from "../components/animations/AboutTextAnimation";
-import AnimatedTitleAnimation from "../components/animations/AboutTextAnimation";
 import { getAboutData } from "../../lib/api";
-import WaveSvg from "@/assets/svg/WaveBlack";
 
 export default async function AboutPage() {
   const aboutData = await getAboutData();
   const userPosibilites = documentToReactComponents(
     aboutData?.aboutSecondParagraph
   );
-
-  const aboutTitle = aboutData?.title;
 
   return (
     <div className="p-5 px-[2vw] max-w-[1200px] min-w-[320px] m-auto flex items-center justify-center">
@@ -55,8 +51,6 @@ export default async function AboutPage() {
       ) : (
         <p className="text-2xl flex items-center justify-center">Loading...</p>
       )}
-
-      <div></div>
       <AnimatedButterfly />
     </div>
   );

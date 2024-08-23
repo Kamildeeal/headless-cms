@@ -4,6 +4,7 @@ import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Comments from "../components/Posts/CommentSection";
 
 interface TripPostPageParams {
   slug: string;
@@ -105,6 +106,7 @@ async function BlogPostPage({ params }: TripPostPageProps) {
           </div>
         </div>
       </div>
+      <Comments postId={tripPost.id} />
     </main>
   );
 }

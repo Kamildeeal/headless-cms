@@ -7,6 +7,7 @@ import { ContentImage, parseContentfulContentImage } from "./contentImage";
 type TripPostEntry = Entry<TypeTripPostSkeleton, undefined, string>;
 
 export interface TripPost {
+  id: string;
   title: string;
   slug: string;
   author?: string;
@@ -26,6 +27,7 @@ export function parseContentfulBlogPost(
   }
 
   return {
+    id: tripPostEntry.sys.id,
     title: tripPostEntry.fields.title || "",
     date: tripPostEntry.fields.date
       ? new Date(tripPostEntry.fields.date)

@@ -7,6 +7,7 @@ import type {
 } from "contentful";
 
 export interface TypeTripPostFields {
+  id?: EntryFieldTypes.Number;
   title?: EntryFieldTypes.Symbol;
   author?: EntryFieldTypes.Object;
   date?: EntryFieldTypes.Date;
