@@ -11,7 +11,7 @@ export default function SearchPage() {
       <div className="flex justify-center font-roboto font-semibold text-2xl">
         SEARCH RESULTS FOR{" "}
         <span className="text-sky-500 ml-2">
-          "{decodedQuery.toLocaleUpperCase()}"
+          &quot;{decodedQuery.toLocaleUpperCase()}&quot;
         </span>
       </div>
       <div className="flex justify-center my-16">
