@@ -53,7 +53,7 @@ const Header = () => {
       <div className="container mx-auto flex md:justify-between items-center">
         {isSearchOpen ? (
           // SearchBar
-          <SearchBar />
+          <SearchBar setIsSearchOpen={setIsSearchOpen} />
         ) : (
           <>
             {/* Logo */}

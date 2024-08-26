@@ -25,7 +25,7 @@ const Footer = () => {
                   href="mailto:kamil.wojciak.1995@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-300 mx-auto"
+                  className="hover:text-red-400 mx-auto"
                 >
                   Gmail
                 </a>
@@ -35,7 +35,7 @@ const Footer = () => {
                   href="https://www.linkedin.com/in/kamil-wojciak-68bb54214/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-300 mx-auto ml-0 sm:ml-6"
+                  className="hover:text-sky-500 mx-auto ml-0 sm:ml-6 hover:text duration-150"
                 >
                   LinkedIn
                 </a>

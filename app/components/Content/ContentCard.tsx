@@ -29,7 +29,7 @@ const ContentCard = ({ post }: ContentCardProps) => {
 
   return (
     <SkillsAnimation>
-      <div className="flex flex-col justify-center items-center gap-6 my-8 overflow-visible pr-5">
+      <div className="group flex flex-col justify-center items-center gap-4 md:gap-6 mt-6 mb-0 md:my-8 overflow-visible px-5">
         <Link href={checkNavigation()}>
           <Image
             src={fullImageUrl}
@@ -40,7 +40,7 @@ const ContentCard = ({ post }: ContentCardProps) => {
           />
         </Link>
         <Link href={checkNavigation()}>
-          <div className="font-basker text-2xl hover:underline cursor-pointer transition-all">
+          <div className="font-basker text-lg sm:text-xl md:text-2xl group-hover:underline cursor-pointer transition-all">
             {post.title.toLocaleUpperCase()}
           </div>
         </Link>

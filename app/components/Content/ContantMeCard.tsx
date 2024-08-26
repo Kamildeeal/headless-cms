@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const ContactMeCard = () => {
   return (
-    <div className="w-full max-w-[1200px] flex flex-col justify-center items-center gap-6 my-8 overflow-visible pr-5">
+    <div className="w-full max-w-[1200px] flex flex-col justify-center items-center gap-4 md:gap-6 mt-6 mb-0 md:my-8 overflow-visible px-5">
       <div
         style={{
           backgroundImage:
@@ -38,7 +38,7 @@ const ContactMeCard = () => {
           </a>
         </div>
       </div>
-      <div className="font-basker text-2xl hover:underline cursor-pointer transition-all">
+      <div className="font-basker text-lg sm:text-xl md:text-2xl hover:underline cursor-pointer transition-all">
         CONTACT ME
       </div>
     </div>

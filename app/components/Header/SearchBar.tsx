@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { useParams, useRouter } from "next/navigation";
 
-const SearchBar = () => {
+const SearchBar = ({ setIsSearchOpen }: any) => {
+  const [inputText, setInputText] = useState("");
+
+  const router = useRouter();
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -18,6 +23,16 @@ const SearchBar = () => {
     },
   };
 
+  const handleInputChange = (e: any) => {
+    setInputText(e.target.value);
+  };
+
+  const handleFormSubmit = (e: any) => {
+    e.preventDefault();
+    router.push(`/search/${inputText}`);
+    setIsSearchOpen((prev: any) => !prev);
+  };
+
   return (
     <AnimatePresence>
       <motion.div
@@ -27,11 +42,15 @@ const SearchBar = () => {
         animate="show"
         exit="exit"
       >
-        <input
-          type="text"
-          placeholder="Seach & enter.."
-          className="w-full mx-8 text-gray-200 bg-gray-900 py-1 px-2 rounded-sm"
-        />
+        <form onSubmit={handleFormSubmit}>
+          <input
+            type="text"
+            value={inputText}
+            onChange={handleInputChange}
+            placeholder="Seach & enter.."
+            className="w-full mx-8 text-gray-200 bg-gray-900 py-1 px-2 rounded-sm"
+          />
+        </form>
       </motion.div>
     </AnimatePresence>
   );

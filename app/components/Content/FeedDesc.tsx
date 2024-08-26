@@ -40,14 +40,14 @@ async function FeedDesc() {
           <p className="font-roboto">SHORT DESCRRIPTION</p>
         </div>
         {/* feed */}
-        <div className="flex gap-2 mt-4 flex-col md:flex-row items-center">
+        <div className="flex justify-center gap-6 md:gap-10 mt-4 flex-col md:flex-row items">
           {feedData &&
             feedData.map((e) => (
               <div
                 key={e.title}
-                className="relative h-max-content max-w-max items-center overflow-hidden custom-shadow group transition-transform duration-3000 ease-in-out transform group-hover:translate-y-0 animate-wave my-auto mr-8"
+                className="relative h-max-content max-w-max items-center overflow-hidden custom-shadow group transition-transform duration-3000 ease-in-out transform group-hover:translate-y-0 animate-wave my-auto rounded-sm"
               >
-                <div className="overflow-hidden">
+                <div className="overflow-hidden rounded-md">
                   <Image
                     src={
                       e.image && e.image.src
@@ -64,24 +64,36 @@ async function FeedDesc() {
                 <div className="absolute inset-0 bg-gradient-to-b h-max-content from-white to-transparent opacity-30 transition-transform duration-3000 ease-in-out transform group-hover:translate-y-0 animate-wave"></div>
               </div>
             ))}
-          {feedData &&
-            feedData.map((e) => {
-              const descriptionText = e.description;
-              const truncatedDescription = truncateText(descriptionText, 100);
-              return (
-                <div
-                  key={e.title}
-                  className="w-full min-w-[300px] md:max-w-[350px] lg:max-w-[525px]"
-                >
-                  <div className="hidden md:block mr-8">
-                    <RichText document={e.description} />
+          <div className="hidden sm:flex">
+            {feedData &&
+              feedData.map((e) => {
+                const descriptionText = e.description;
+                const truncatedDescription = truncateText(descriptionText, 100);
+                return (
+                  <div
+                    key={e.title}
+                    className="w-full min-w-[300px] md:max-w-[350px] lg:max-w-[525px]"
+                  >
+                    <div className="hidden md:block">
+                      <RichText document={e.description} />
+                    </div>
+                    <div className="block md:hidden">
+                      <RichText document={truncatedDescription} />
+                    </div>
                   </div>
-                  <div className="block md:hidden mr-8">
-                    <RichText document={truncatedDescription} />
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+          </div>
+          <div className="flex sm:hidden flex-col">
+            Once again, thank you for visiting Tripstagram. Your support and
+            interest are what keep this website alive and thriving. I hope you
+            enjoy your time here, find inspiration for your own travels, and
+            maybe even discover a new destination to add to your bucket list.
+            Remember, the world is full of incredible places just waiting to be
+            explored. Let’s continue to discover them together! Safe travels!
+            <br />
+            <strong className="mt-2">Kamil.</strong>
+          </div>
         </div>
       </div>
     </SkillsAnimation>

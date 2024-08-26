@@ -19,9 +19,9 @@ const HomeFooter = ({ heroData }: any) => {
               FIND US!
             </div>
             <div className="flex gap-8">
-              <FaInstagram className="hover:scale-110 cursor-pointer" />
-              <BsTwitterX className="hover:scale-110 cursor-pointer" />
-              <FaTelegram className="hover:scale-110 cursor-pointer" />
+              <FaInstagram className="hover:scale-110 cursor-pointer hover:text-pink-600 duration-150" />
+              <BsTwitterX className="hover:scale-110 cursor-pointer hover:text-black duration-150" />
+              <FaTelegram className="hover:scale-110 cursor-pointer hover:text-sky-500 duration-150" />
             </div>
           </div>
 
