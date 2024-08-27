@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import React, { useState } from "react";
 import { PiButterfly } from "react-icons/pi";
 import LinkHeader from "./Header/LinkHeader";
@@ -11,8 +10,7 @@ import { IoMdSearch } from "react-icons/io";
 import { RxCross2 } from "react-icons/rx";
 import SearchBar from "./Header/SearchBar";
 import LinkMobileMenu from "./Header/MobileMenu/LinkMobileMenu";
-import MobileGalleryDropdown from "./Header/MobileMenu/MobileGalleryDropdown";
-import WaveSvg from "@/assets/svg/WaveBlack";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,6 +20,11 @@ const Header = () => {
     contact: false,
   });
 
+  const pathname = usePathname();
+
+  const isActive = (href: string) =>
+    pathname === href ? "font-semibold text-sky-500" : "text-gray-200";
+
   //on click
   const toggleDropdown = (dropdown: keyof typeof dropdownStates) => {
     setDropdownStates((prevState) => ({
@@ -29,6 +32,7 @@ const Header = () => {
       [dropdown]: !prevState[dropdown],
     }));
   };
+
   //on mouse in
   const openDropdown = (dropdown: keyof typeof dropdownStates) => {
     setDropdownStates((prevState) => ({
@@ -36,6 +40,7 @@ const Header = () => {
       [dropdown]: true,
     }));
   };
+
   //on mouse out
   const closeDropdown = (dropdown: keyof typeof dropdownStates) => {
     setDropdownStates((prevState) => ({
@@ -49,7 +54,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-black p-4   shadow-md z-50">
+    <header className="bg-black p-4 shadow-md z-50">
       <div className="container mx-auto flex md:justify-between items-center">
         {isSearchOpen ? (
           // SearchBar
@@ -62,30 +67,40 @@ const Header = () => {
               <span>Tripstagram</span>
             </h1>
 
-            {/* Big screens*/}
+            {/* Big screens */}
             <div className="flex items-center justify-center text-center">
               <nav className="relative gap-3 lg:gap-4 mx-auto hidden min-[824px]:flex">
-                <LinkHeader href="/">Home</LinkHeader>
-                <LinkHeader href="/posts">Blog Posts</LinkHeader>
+                <LinkHeader href="/">
+                  <span className={isActive("/")}>Home</span>
+                </LinkHeader>
+                <LinkHeader href="/posts">
+                  <span className={isActive("/posts")}>Blog Posts</span>
+                </LinkHeader>
                 <div
                   className="relative my-auto"
                   onClick={() => toggleDropdown("gallery")}
                   onMouseEnter={() => openDropdown("gallery")}
                   onMouseLeave={() => closeDropdown("gallery")}
                 >
-                  <LinkDropDown href="/">Gallery</LinkDropDown>
+                  <LinkDropDown href="/">
+                    <span className={isActive("/gallery")}>Gallery</span>
+                  </LinkDropDown>
                   {dropdownStates.gallery && (
                     <GalleryDropdown dropdownState={dropdownStates.gallery} />
                   )}
                 </div>
-                <LinkHeader href="/about">About</LinkHeader>
+                <LinkHeader href="/about">
+                  <span className={isActive("/about")}>About</span>
+                </LinkHeader>
                 <div
                   className="relative my-auto"
                   onClick={() => toggleDropdown("contact")}
                   onMouseEnter={() => openDropdown("contact")}
                   onMouseLeave={() => closeDropdown("contact")}
                 >
-                  <LinkDropDown href="/">Contact</LinkDropDown>
+                  <LinkDropDown href="#">
+                    <span className={isActive("/contact")}>Contact</span>
+                  </LinkDropDown>
                   {dropdownStates.contact && (
                     <ContactDropdown dropdownState={dropdownStates.contact} />
                   )}
@@ -102,7 +117,7 @@ const Header = () => {
           {isSearchOpen ? <RxCross2 /> : <IoMdSearch />}
         </div>
 
-        {/* Hamburger*/}
+        {/* Hamburger */}
         <button
           className="min-[824px]:hidden text-gray-200 text-2xl hover:scale-110"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -114,27 +129,37 @@ const Header = () => {
       {/* Small screens */}
       {isMenuOpen && (
         <nav className="md:hidden mt-4 flex justify-center items-center flex-col z-50">
-          <LinkMobileMenu href="/">Home</LinkMobileMenu>
-          <LinkMobileMenu href="/posts">Blog Posts</LinkMobileMenu>
+          <LinkMobileMenu href="/">
+            <span className={isActive("/")}>Home</span>
+          </LinkMobileMenu>
+          <LinkMobileMenu href="/posts">
+            <span className={isActive("/posts")}>Blog Posts</span>
+          </LinkMobileMenu>
           <div
             className="relative my-auto"
             onClick={() => toggleDropdown("gallery")}
             onMouseEnter={() => openDropdown("gallery")}
             onMouseLeave={() => closeDropdown("gallery")}
           >
-            <LinkDropDown href="/">Gallery</LinkDropDown>
+            <LinkDropDown href="/">
+              <span className={isActive("/gallery")}>Gallery</span>
+            </LinkDropDown>
             {dropdownStates.gallery && (
               <GalleryDropdown dropdownState={dropdownStates.gallery} />
             )}
           </div>
-          <LinkMobileMenu href="/about">About</LinkMobileMenu>
+          <LinkMobileMenu href="/about">
+            <span className={isActive("/about")}>About</span>
+          </LinkMobileMenu>
           <div
             className="relative my-auto"
             onClick={() => toggleDropdown("contact")}
             onMouseEnter={() => openDropdown("contact")}
             onMouseLeave={() => closeDropdown("contact")}
           >
-            <LinkDropDown href="/">Contact</LinkDropDown>
+            <LinkDropDown href="#">
+              <span className={isActive("/contact")}>Contact</span>
+            </LinkDropDown>
             {dropdownStates.contact && (
               <ContactDropdown dropdownState={dropdownStates.contact} />
             )}
