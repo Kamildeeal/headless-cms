@@ -73,7 +73,7 @@ const Header = () => {
                 <LinkHeader href="/">
                   <span className={isActive("/")}>Home</span>
                 </LinkHeader>
-                <LinkHeader href="/posts">
+                <LinkHeader href="/posts/1">
                   <span className={isActive("/posts")}>Blog Posts</span>
                 </LinkHeader>
                 <div
@@ -132,7 +132,7 @@ const Header = () => {
           <LinkMobileMenu href="/">
             <span className={isActive("/")}>Home</span>
           </LinkMobileMenu>
-          <LinkMobileMenu href="/posts">
+          <LinkMobileMenu href="/posts/1">
             <span className={isActive("/posts")}>Blog Posts</span>
           </LinkMobileMenu>
           <div

@@ -60,7 +60,7 @@ async function BlogPostPage({ params }: TripPostPageProps) {
   return (
     <main className="flex flex-col justify-center items-center px-[5vw] mt-20 mb-28">
       <div className="w-full min-w-[330px] max-w-[1170px]">
-        <Link href="/posts" className="text-xl">
+        <Link href="/posts/1" className="text-xl">
           ← Posts
         </Link>
         <div className="mt-8 border-t pt-8">
