@@ -25,6 +25,9 @@ const Header = () => {
   const isActive = (href: string) =>
     pathname === href ? "font-semibold text-sky-500" : "text-gray-200";
 
+  const isActivePosts = (href: string) =>
+    pathname.startsWith(href) ? "font-semibold text-sky-500" : "text-gray-200";
+
   //on click
   const toggleDropdown = (dropdown: keyof typeof dropdownStates) => {
     setDropdownStates((prevState) => ({
@@ -54,7 +57,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-black p-4 shadow-md z-50">
+    <header className="bg-black p-4 shadow-md z-100">
       <div className="container mx-auto flex md:justify-between items-center">
         {isSearchOpen ? (
           // SearchBar
@@ -74,7 +77,7 @@ const Header = () => {
                   <span className={isActive("/")}>Home</span>
                 </LinkHeader>
                 <LinkHeader href="/posts/1">
-                  <span className={isActive("/posts")}>Blog Posts</span>
+                  <span className={isActivePosts("/posts")}>Blog Posts</span>
                 </LinkHeader>
                 <div
                   className="relative my-auto"
@@ -128,12 +131,22 @@ const Header = () => {
 
       {/* Small screens */}
       {isMenuOpen && (
-        <nav className="md:hidden mt-4 flex justify-center items-center flex-col z-50">
+        <nav className="min-[824px]:hidden mt-4 flex justify-center items-center flex-col z-50">
           <LinkMobileMenu href="/">
-            <span className={isActive("/")}>Home</span>
+            <span
+              className={isActive("/")}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              Home
+            </span>
           </LinkMobileMenu>
           <LinkMobileMenu href="/posts/1">
-            <span className={isActive("/posts")}>Blog Posts</span>
+            <span
+              className={isActive("/posts")}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              Blog Posts
+            </span>
           </LinkMobileMenu>
           <div
             className="relative my-auto"
@@ -149,7 +162,12 @@ const Header = () => {
             )}
           </div>
           <LinkMobileMenu href="/about">
-            <span className={isActive("/about")}>About</span>
+            <span
+              className={isActive("/about")}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              About
+            </span>
           </LinkMobileMenu>
           <div
             className="relative my-auto"

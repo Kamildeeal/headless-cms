@@ -127,13 +127,15 @@ async function PostPage({ params }: { params: { page: string } }) {
         </div>
         <div className="h-[2px] w-16 sm:w-32 md:w-64 ml-4 bg-gradient-to-r from-gray-300 to-transparent"></div>
       </div>
-      <p className="font-roboto text-gray-700 mb-10">RECENT POSTS</p>
+      <p className="font-roboto text-gray-700 mb-10 font-medium">
+        RECENT POSTS
+      </p>
 
       {/* Posts section */}
-      <section className="flex h-full flex-col items-center justify-between p-4 sm:p-8 md:p-12 lg:p-24">
+      <section className="flex h-full flex-col items-center justify-between sm:pt-8 md:pt-12">
         <div>
           {paginatedPosts && paginatedPosts.length > 0 ? (
-            <div className="mb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1240px] w-full">
+            <div className="mb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12 md:gap-16 max-w-[1200px] w-full">
               {paginatedPosts.map((trip) => (
                 <div key={trip.slug} className="flex justify-center">
                   <TripCard trip={trip} />

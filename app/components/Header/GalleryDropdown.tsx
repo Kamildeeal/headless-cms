@@ -57,9 +57,9 @@ const GalleryDropdown = ({
           animate={dropdownState === true ? "visible" : "exit"}
           exit="exit"
           variants={dropdownVariants}
-          className="absolute left-0 w-48 bg-black shadow-lgoverflow-hidden z-[1000]"
+          className="absolute left-0 w-48 bg-black shadow-lgoverflow-hidden z-[100]"
         >
-          <div className="dropdown-menu text-start absolute flex flex-col gap-2 bg-b font-roboto bg-black text-sm text-gray-200 px-2 pt-6 pb-2 w-[200px] z-[50]">
+          <div className="z-[150] dropdown-menu text-start absolute flex flex-col gap-2 bg-b font-roboto bg-black text-sm text-gray-200 px-2 pt-6 pb-2 w-[200px]">
             <LinkDropdownMenu href="#">just an example</LinkDropdownMenu>
             <LinkDropdownMenu href="#">of dropdown menu</LinkDropdownMenu>
             <LinkDropdownMenu href="#">

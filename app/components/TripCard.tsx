@@ -34,7 +34,7 @@ const TripCard = ({ trip }: TripCardProps) => {
 
   return (
     <div
-      className="h-[400px] w-full max-w-[400px] transition-transform overflow-hidden border-2 border-gray-300 rounded-xl relative shadow-xl shadow-gray-500"
+      className="h-[400px] w-full max-w-[350px] transition-transform overflow-hidden border-2 border-gray-300 rounded-xl relative shadow-xl shadow-gray-500"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{ transform: hover ? "scale(1.1)" : "scale(1)" }}
