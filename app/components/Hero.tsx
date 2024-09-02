@@ -5,7 +5,7 @@ import HeroEntryText from "./Hero/HeroEntryText";
 
 async function Hero({ heroData }: any) {
   return (
-    <section className="relative sm:h-[700px] w-screen overflow-hidden bg-gray-400 flex flex-col justify-between max-[1300px]:h-[550px] max-lg:h-[500px] max-md:h-[85vh]">
+    <section className="relative sm:h-[400px] min-[561px]:h-[350px] md:h-[450px] lg:h-[600px] xl:h-[700px] w-screen overflow-hidden bg-gray-400 flex flex-col justify-between max-[1300px]:h-[550px] max-lg:h-[500px] max-md:h-[85vh]">
       {/* Video or Image */}
       {heroData.imageUrl && (
         <div className="realtive overflow-hidden hidden max-[560px]:flex">
