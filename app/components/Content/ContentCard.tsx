@@ -21,7 +21,7 @@ const ContentCard = ({ post }: ContentCardProps) => {
     if (post.title === "About Tripstagram") {
       navigation = "/about";
     } else if (post.title === "Blog Posts") {
-      navigation = "/posts";
+      navigation = "/posts/1";
     }
 
     return navigation;
